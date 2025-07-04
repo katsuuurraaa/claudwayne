@@ -1,24 +1,22 @@
-import asyncio
+import os
 import random
 import time
-from aiogram import types
-from aiogram.fsm.context import FSMContext
-from aiogram import Bot, Dispatcher
+from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 from aiogram.fsm.storage.memory import MemoryStorage
-
-# Настройки бота
 from dotenv import load_dotenv
-import os
 
+# Загрузка токена из .env
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
+
 bot = Bot(token=TOKEN)
 storage = MemoryStorage()
 dp = Dispatcher(storage=storage)
 
 # База данных (в памяти)
 users_db = {}
+
 
 # Карточки
 cards = {
